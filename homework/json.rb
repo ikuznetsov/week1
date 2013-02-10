@@ -8,9 +8,16 @@ require 'json'
 # ----------------------------------------------------------
 # CHANGE THIS CODE so that the tests pass:
 def get_favorite(key, json)
+  parse = JSON.parse(json)
+  parse.select do |k, v|
+    if v.has_key?(key)
+      return v[key]
+    end
+  end
 end
 
 def generate_json_from_hash(h)
+  JSON.generate(h)
 end
 # ----------------------------------------------------------
 
